@@ -1,0 +1,59 @@
+<html>
+
+<head>
+    <meta name="description" content="San Francisco Ramen Map" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <aside class="sidebar">
+        <h1>Ramen Finder</h1>
+        <ul class="list">
+            <li class="list__item">
+                <picture class="list__selected">
+                    <img src="svg/ramen.svg" alt="Place selected" />
+                </picture>
+                <div class="list__details">
+                    <span class="list__name">Noodle Shop</span>
+                    <picture class="list__rating">
+                        <img src="images/yelp/small/small_4_half@2x.png" alt="4.5 star Yelp rating" />
+                    </picture>
+                </div>
+            </li>
+            <li class="list__item">
+                <picture class="list__selected">
+                    <img src="svg/ramen.svg" alt="Place selected" />
+                </picture>
+                <div class="list__details">
+                    <span class="list__name" title="Noodle Shop That has a really long name.">Noodle Shop That has a really long name.</span>
+                    <picture class="list__rating">
+                        <img src="images/yelp/small/small_4_half@2x.png" alt="4.5 star Yelp rating" />
+                    </picture>
+                </div>
+            </li>
+            <li class="list__item">
+                <picture class="list__selected">
+                    <img src="svg/ramen.svg" alt="Place selected" />
+                </picture>
+                <div class="list__details">
+                    <span class="list__name">Noodle Shop</span>
+                    <picture class="list__rating">
+                        <img src="images/yelp/small/small_4_half@2x.png" alt="4.5 star Yelp rating" />
+                    </picture>
+                </div>
+            </li>
+        </ul>
+    </aside>
+    <div id="map"></div>
+    <script type="text/javascript" src="node_modules/knockout/build/output/knockout-latest.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/google-maps.js">
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?libraries=drawing,geometry&key=AIzaSyBSQrRMRf7CyMPRS0nhNR8KEI2oLDDRdw0&callback=initMap"></script>
+</body>
+</body>
+
+</html>

@@ -1,0 +1,20 @@
+{
+  "name": "neighborhood",
+  "version": "1.0.0",
+  "description": "Quickly find ramen in San Francisco.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "d0coat01",
+  "license": "ISC",
+  "dependencies": {
+    "jquery": "^3.3.1",
+    "knockout": "^3.4.2"
+  },
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^13.0.0",
+    "eslint-plugin-import": "^2.13.0"
+  }
+}
