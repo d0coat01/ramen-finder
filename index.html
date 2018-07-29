@@ -9,49 +9,38 @@
 </head>
 
 <body>
+    <div class="sidebar-container" data-bind="css: {'sidebar--hide': !showMenu()}">
+            <button class="sidebar__toggle" data-bind="click: toggleMenu"><</button>
     <aside class="sidebar">
-        <h1>Ramen Finder</h1>
-        <ul class="list">
-            <li class="list__item">
-                <picture class="list__selected">
+        <h1 class="sidebar__header">Ramen Finder</h1>
+        <h3 class="sidebar__header">Yelp Results</h3>
+        <form class="sidebar__filters">
+            <label class="sidebar__header" >Min. Stars</label>
+            <select data-bind="options: ratings,
+            value: selectedRating,
+            event:{ change: ratingChange}"></select>
+        </form>
+        <h3 data-bind="visible: errorMessage, text: errorMessage"></h3>
+        <ul data-bind="foreach: shops" class="list">
+            <li class="list__item" data-bind="{click: toggleShop, css: {'list__item--selected': selectedShops.indexOf(id)!==-1}}">
+                <picture class="list__icon" data-bind="visible: selectedShops.indexOf(id)!==-1">
                     <img src="svg/ramen.svg" alt="Place selected" />
                 </picture>
                 <div class="list__details">
-                    <span class="list__name">Noodle Shop</span>
+                    <span class="list__name" data-bind="text: name"></span>
                     <picture class="list__rating">
-                        <img src="images/yelp/small/small_4_half@2x.png" alt="4.5 star Yelp rating" />
-                    </picture>
-                </div>
-            </li>
-            <li class="list__item">
-                <picture class="list__selected">
-                    <img src="svg/ramen.svg" alt="Place selected" />
-                </picture>
-                <div class="list__details">
-                    <span class="list__name" title="Noodle Shop That has a really long name.">Noodle Shop That has a really long name.</span>
-                    <picture class="list__rating">
-                        <img src="images/yelp/small/small_4_half@2x.png" alt="4.5 star Yelp rating" />
-                    </picture>
-                </div>
-            </li>
-            <li class="list__item">
-                <picture class="list__selected">
-                    <img src="svg/ramen.svg" alt="Place selected" />
-                </picture>
-                <div class="list__details">
-                    <span class="list__name">Noodle Shop</span>
-                    <picture class="list__rating">
-                        <img src="images/yelp/small/small_4_half@2x.png" alt="4.5 star Yelp rating" />
+                        <img data-bind="attr:{src: rating_img_src}" alt="Yelp rating" />
                     </picture>
                 </div>
             </li>
         </ul>
     </aside>
+    </div>
     <div id="map"></div>
     <script type="text/javascript" src="node_modules/knockout/build/output/knockout-latest.js"></script>
+    <script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
-    <script type="text/javascript" src="js/google-maps.js">
-    </script>
+    <script type="text/javascript" src="js/google-maps.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?libraries=drawing,geometry&key=AIzaSyBSQrRMRf7CyMPRS0nhNR8KEI2oLDDRdw0&callback=initMap"></script>
 </body>
 </body>

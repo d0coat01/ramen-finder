@@ -4,13 +4,16 @@
   "description": "Quickly find ramen in San Francisco.",
   "main": "index.js",
   "scripts": {
+    "api-server": "node api/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "d0coat01",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.16.3",
     "jquery": "^3.3.1",
-    "knockout": "^3.4.2"
+    "knockout": "^3.4.2",
+    "yelp-fusion": "^2.0.3"
   },
   "devDependencies": {
     "eslint": "^4.19.1",
