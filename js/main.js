@@ -30,40 +30,40 @@ function ramenViewModel() {
       self.toggleShop(shop);
     }
   })
-  .catch((error) => {
-    console.log(error);
-    self.errorMessage('Uh oh! There was a problem cooking up the ramen shop list!')
+    .catch((error) => {
+      console.log(error);
+      self.errorMessage('Uh oh! There was a problem cooking up the ramen shop list!')
 
-  });
-/**
-* @description Toggles the showMenu boolean. Used for showing/hiding ramen list sidebar.
-*/
-  self.toggleMenu = function() {
+    });
+  /**
+  * @description Toggles the showMenu boolean. Used for showing/hiding ramen list sidebar.
+  */
+  self.toggleMenu = function () {
     self.showMenu(!self.showMenu());
   }
 
-/**
-* @description Whenever the rating filter is changed, display the appropriate ramen shops.
-*/
-  self.ratingChange = function() {
+  /**
+  * @description Whenever the rating filter is changed, display the appropriate ramen shops.
+  */
+  self.ratingChange = function () {
     const rating = self.selectedRating() === 'All' ? 0 : parseFloat(self.selectedRating());
-    for(let shop of self.shops()) {
+    for (let shop of self.shops()) {
       const selected = self.selectedShops().indexOf(shop.id) !== -1;
-      if(!selected && shop.rating >= rating) {
+      if (!selected && shop.rating >= rating) {
         //shop is not selected but should be.
         self.toggleShop(shop);
       }
-      if(selected && shop.rating < rating) {
+      if (selected && shop.rating < rating) {
         //shop is selected but should not be.
         self.toggleShop(shop);
       }
     }
   };
-/**
-* @description Toggles a ramen shop between selected and not selected.
-* @constructor
-* @param {object} shop - A ramen shop object.
-*/
+  /**
+  * @description Toggles a ramen shop between selected and not selected.
+  * @constructor
+  * @param {object} shop - A ramen shop object.
+  */
   self.toggleShop = function (shop) {
     const selected = self.selectedShops().indexOf(shop.id) === -1;
     if (selected) {

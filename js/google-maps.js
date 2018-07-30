@@ -25,7 +25,7 @@ function initMap() {
 */
 function toggleMarker(location) {
     //check if location exists in markers....if it does, remove it and return.
-    for (let i=0; i<markers.length; i++) {
+    for (let i = 0; i < markers.length; i++) {
         if (markers[i].yelp.id === location.id) {
             markers[i].setMap(null); //remove marker
             markers.splice(i, 1);
@@ -76,7 +76,7 @@ function openWindow(marker, infowindow) {
     //convert marker yelp info into html
     const address = "<div>" + marker.yelp.address.join("</div><div>") + "</div>";
     const content = `<div class='marker'>
-    <img class='marker__image' src='${marker.yelp.image}'>
+    <img class='marker__image' src='${marker.yelp.image}' alt='Yelp picture of restaurant'>
         <div><strong>${marker.yelp.name}</strong>
         ${address}
     </div>`;
