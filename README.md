@@ -24,3 +24,13 @@ Find the best ramen in San Francisco! Yelp-curated ramen shops are displayed on 
 * `images/yelp` - Yelp rating images
 * `svg/*` - SVGs (ramen bowl)
 * `api/server.js` - Express server for Yelp API call
+
+## Sources
+
+* Ramen SVG by Mayene de La Cruz from the [Noun Project](https://thenounproject.com/term/ramen/18272/)
+* [Google Maps API](https://cloud.google.com/maps-platform/)
+* [KnockoutJs](http://knockoutjs.com/index.html)
+* [Yelp API](https://www.yelp.com/developers/documentation/v3)
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/) License 2018. This code may be shared, copied, and changed freely.
