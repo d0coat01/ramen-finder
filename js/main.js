@@ -43,6 +43,17 @@ function ramenViewModel() {
   }
 
   /**
+  * @description Open up marker infowindow if shop selected.
+  * @constructor
+  * @param {object} shop - A ramen shop object.
+  */
+
+
+  self.toggleMenu = function () {
+    self.showMenu(!self.showMenu());
+  }
+
+  /**
   * @description Whenever the rating filter is changed, display the appropriate ramen shops.
   */
   self.ratingChange = function () {
@@ -59,7 +70,7 @@ function ramenViewModel() {
       }
     }
   };
-  /**
+  /*
   * @description Toggles a ramen shop between selected and not selected.
   * @constructor
   * @param {object} shop - A ramen shop object.
@@ -74,18 +85,34 @@ function ramenViewModel() {
     }
     displayShop(shop);
   };
+
+  self.clickShop = function(shop) {
+    const selected = self.selectedShops().indexOf(shop.id) === -1;
+    self.toggleShop(shop);
+    if(selected) {
+      //display restaurant marker info
+      displayMarkerInfo(shop);
+    }
+  }
+
 }
 //End of Ramen View Model
+
 
 /**
 * @description A hook into google map markers. Toggles the marker of the target ramen shop.
 * @constructor
 * @param {object} shop - A ramen shop object.
 */
+
 function displayShop(shop) {
   shop.lat = parseFloat(shop.coordinates.latitude);
   shop.lng = parseFloat(shop.coordinates.longitude);
   toggleMarker(shop);
 }
 
+function loadingError() {
+  console.log("Error loading javascript!");
+  window.alert("There was an error loading the page.");
+}
 ko.applyBindings(ramenViewModel);

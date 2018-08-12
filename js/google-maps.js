@@ -1,16 +1,23 @@
+"use strict";
+
 var markers = [];
 var map, infowindow;
 
+const CONSTANTS = {
+    //center of San Francisco
+    MAP_CENTER_COORD: { lat: 37.761549, lng: -122.440021 },
+    MAP_ZOOM: 12,
+
+}
 /**
 * @description Creates a google Map object and Infowindow object
 */
 function initMap() {
     const locations = [
     ];
-    const location = { lat: 37.761549, lng: -122.440021 }; //center of San Francisco
     map = new google.maps.Map(document.getElementById('map'), {
-        center: location,
-        zoom: 12,
+        center: CONSTANTS.MAP_CENTER_COORD,
+        zoom: CONSTANTS.MAP_ZOOM
     });
     infowindow = new google.maps.InfoWindow({});
     //addMarkers(locations);
@@ -27,7 +34,7 @@ function toggleMarker(location) {
     //check if location exists in markers....if it does, remove it and return.
     for (let i = 0; i < markers.length; i++) {
         if (markers[i].yelp.id === location.id) {
-            markers[i].setMap(null); //remove marker
+            markers[i].setVisible(false); //remove marker
             markers.splice(i, 1);
             return;
         }
@@ -50,7 +57,6 @@ function toggleMarker(location) {
     });
     marker.yelp = yelp;
     marker.addListener('click', () => openWindow(marker, infowindow));
-    marker.addListener('click', () => setBounce(marker));
     markers.push(marker);
 }
 
@@ -82,4 +88,14 @@ function openWindow(marker, infowindow) {
     </div>`;
     infowindow.setContent(content);
     infowindow.open(map, marker);
+    setBounce(marker);
+}
+
+function displayMarkerInfo(shop) {
+    //check if location exists in markers....if it does, remove it and return.
+    for (let i = 0; i < markers.length; i++) {
+        if (markers[i].yelp.id === shop.id) {
+           openWindow(markers[i], infowindow);
+        }
+    }
 }

@@ -24,7 +24,7 @@
                     </form>
                     <h3 data-bind="visible: errorMessage, text: errorMessage"></h3>
                     <ul data-bind="foreach: shops" class="list">
-                        <li class="list__item" data-bind="{click: toggleShop, css: {'list__item--selected': selectedShops.indexOf(id)!==-1}}">
+                        <li class="list__item" data-bind="{click: clickShop, css: {'list__item--selected': selectedShops.indexOf(id)!==-1}}">
                             <picture class="list__icon" data-bind="visible: selectedShops.indexOf(id)!==-1">
                                 <img src="svg/ramen.svg" alt="Place selected" />
                             </picture>
@@ -39,12 +39,11 @@
                 </aside>
     </div>
     <div id="map"></div>
-    <script type="text/javascript" src="node_modules/knockout/build/output/knockout-latest.js"></script>
-    <script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
-    <script type="text/javascript" src="js/main.js"></script>
-    <script type="text/javascript" src="js/google-maps.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?libraries=drawing,geometry&key=AIzaSyBSQrRMRf7CyMPRS0nhNR8KEI2oLDDRdw0&callback=initMap"></script>
+    <script type="text/javascript" src="node_modules/knockout/build/output/knockout-latest.js" onerror="loadingError()"></script>
+    <script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js" onerror="loadingError()"></script>
+    <script type="text/javascript" src="js/main.js" onerror="loadingError()"></script>
+    <script type="text/javascript" src="js/google-maps.js" onerror="loadingError()"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?libraries=drawing,geometry&key=AIzaSyBSQrRMRf7CyMPRS0nhNR8KEI2oLDDRdw0&callback=initMap"
+    onerror="loadingError()"></script>
 </body>
-</body>
-
 </html>
